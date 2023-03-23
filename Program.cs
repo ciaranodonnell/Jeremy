@@ -3,10 +3,11 @@ Console.WriteLine("Hello, Jeremy!");
 Console.WriteLine("What would you like to draw?");
 Console.WriteLine("\t1. Triangle");
 Console.WriteLine("\t2. Square");
+Console.WriteLine("\t3. Hexagon");
 Console.Write("> ");
 var input = Console.ReadLine();
 int selection = 0;
-if (!int.TryParse(input, out selection) || selection < 1 || selection > 2)
+if (!int.TryParse(input, out selection) || selection < 1 || selection > 3)
 {
     Console.WriteLine("Invalid Selection");
     return;
@@ -17,6 +18,7 @@ switch (selection)
 {
     case 1: DrawTriangle(); break;
     case 2: DrawSquare(); break;
+    case 3: DrawHexagon(); break;
 }
 
 
@@ -54,5 +56,32 @@ static void DrawSquare()
     {
         Console.WriteLine("".PadRight(selection, 'x'));
     }
+    Console.WriteLine(); // make a blank link to be nice
+}
+
+
+static void DrawHexagon()
+{
+
+    Console.Write("Enter Side Length > ");
+    var input = Console.ReadLine();
+    int sideLength = 0;
+    if (!int.TryParse(input, out sideLength) || sideLength < 3 || sideLength > 30)
+    {
+        Console.WriteLine("Square sides need to be between 3 and 30");
+        return;
+    }
+
+    for (int row = 1; row <= sideLength; row++)
+    {
+        Console.Write("".PadRight(sideLength - row, ' '));
+        Console.WriteLine("".PadRight(sideLength + (2 * row), 'x'));
+    }
+    for (int row = sideLength - 1; row > 0; row--)
+    {
+        Console.Write("".PadRight(sideLength - row, ' '));
+        Console.WriteLine("".PadRight(sideLength + (2 * row), 'x'));
+    }
+
     Console.WriteLine(); // make a blank link to be nice
 }
