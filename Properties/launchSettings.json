@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Jeremy": {
+      "commandName": "Project",
+      "commandLineArgs": "jeremy.exe ciaran.exe"
+    }
+  }
+}
